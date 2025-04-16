@@ -1,0 +1,32 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fff;
+  color: #333;
+}
+
+/* Navbar styling */
+.uk-navbar-container {
+  height: 60px;
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.uk-navbar-item img {
+  height: 40px;
+}
+
+/* Product cards */
+.uk-card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.uk-card-body p {
+  margin: 5px 0;
+}
+
+/* Sidebar checkboxes */
+.uk-checkbox {
+  margin-right: 8px;
+}

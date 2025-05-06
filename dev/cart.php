@@ -1,5 +1,5 @@
 <?php
-include_once("head.inc.php");
+include_once("templates/head.inc.php");
 ?>  
 
 <main class="uk-container uk-padding">
@@ -90,5 +90,5 @@ include_once("head.inc.php");
   </main>
 
 <?php
-include_once("foot.inc.php");
+include_once("templates/foot.inc.php");
     

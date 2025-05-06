@@ -22,7 +22,7 @@
 
     <div class="uk-navbar-center">
       <a href="#" class="uk-navbar-item uk-logo">
-        <img src="img/logo.png" alt="Logo" style="height: 54px; object-fit: contain;">
+        <img src="templates/img/logo.png" alt="Logo" style="height: 54px; object-fit: contain;">
       </a>
     </div>
 
@@ -30,7 +30,7 @@
       <ul class="uk-navbar-nav">
         <li><a href="#" style="color: black;">Zoek</a></li>
         <li><a href="#" style="color: black;">Log in</a></li>
-        <li><a href="templates/cart.php" style="color: black;">Mand</a></li>
+        <li><a href="webshop/dev/cart.php" style="color: black;">Mand</a></li>
       </ul>
     </div>
   </nav>

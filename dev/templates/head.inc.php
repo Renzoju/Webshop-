@@ -30,7 +30,7 @@
       <ul class="uk-navbar-nav">
         <li><a href="#" style="color: black;">Zoek</a></li>
         <li><a href="#" style="color: black;">Log in</a></li>
-        <li><a href="#" style="color: black;">Mand</a></li>
+        <li><a href="templates/cart.php" style="color: black;">Mand</a></li>
       </ul>
     </div>
   </nav>

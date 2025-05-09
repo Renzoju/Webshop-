@@ -13,7 +13,6 @@ try {
     die("Database connection failed: " . $e->getMessage());
 }
 
-
 $sql = "SELECT * FROM producten";
 $stmt = $pdo->query($sql);
 if ($stmt === false) {
@@ -26,12 +25,15 @@ $producten = $stmt->fetchAll(PDO::FETCH_ASSOC);
 include_once("templates/head.inc.php");
 ?>  
 
+
+<!-- CARD Section -->
+
 <section class="uk-section uk-section-small">
   <div class="uk-container">
     <div class="uk-grid-match uk-child-width-1-2@s uk-child-width-1-3@m" uk-grid>
       <?php foreach ($producten as $product): ?>
         <div>
-          <a href="product.php?id=<?= $product['id'] ?>" class="uk-card uk-card-default uk-card-hover uk-display-block uk-overflow-hidden">
+          <a href="product.php?product_id=<?= $product['id'] ?>" class="uk-card uk-card-default uk-card-hover uk-display-block uk-overflow-hidden">
             <div class="uk-card-media-top">
               <div class="uk-cover-container" style="aspect-ratio: 4 / 3;">
                 <img src="img/<?= htmlspecialchars($product['afbeelding']) ?>" alt="<?= htmlspecialchars($product['naam']) ?>" uk-cover>
@@ -50,6 +52,6 @@ include_once("templates/head.inc.php");
   </div>
 </section>
 
-
 <?php
 include_once("templates/foot.inc.php");
+?>

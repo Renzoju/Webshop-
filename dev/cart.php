@@ -39,7 +39,7 @@ foreach ($cart_items as $item) {
                         </div>
                         <div class="uk-width-1-4">
                             <a href="#" class="uk-link-cart-trash uk-flex uk-flex-column uk-flex-middle uk-text-danger uk-flex-1">
-                                <span uk-icon="icon: trash"></span>
+                                 <span uk-icon="icon: trash"></span>
                                 <span class="uk-text-xsmall">Verwijder</span>
                             </a>
                         </div>

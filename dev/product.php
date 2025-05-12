@@ -36,12 +36,16 @@ if (!$product) {
 }
 ?>
 
-<!--  HTML CARD  -->
+<!-- HTML CARD -->
 <div class="uk-grid">
    <section class="uk-width-1">
-      <div class="uk-grid uk-card uk-card-default">
+      <div class="uk-grid uk-card uk-card-default" style="max-width: 1200px; margin: 0 auto;">
          <section class="uk-width-1-2 uk-card-media-left">
-            <img src="<?= htmlspecialchars($product->afbeelding) ?>" alt="" />
+            <div class="uk-card-media-top">
+               <div class="uk-cover-container" style="height: 700px;">
+                  <img src="img/<?= htmlspecialchars($product->afbeelding) ?>" alt="<?= htmlspecialchars($product->naam) ?>" uk-cover>
+               </div>
+            </div>
          </section>
          <section class="uk-width-1-2 uk-card-body uk-flex uk-flex-column uk-flex-between">
             <div>
@@ -67,6 +71,7 @@ if (!$product) {
       </div>
    </section>
 </div>
+
 
 <?php
 include_once("templates/foot.inc.php");

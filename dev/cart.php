@@ -5,13 +5,13 @@ include_once("templates/head.inc.php");
 $pdo = new PDO('mysql:host=localhost;dbname=gymwebshop', 'root', '');
 
 // Stap 2: Winkelmandje ophalen
-$stmt = $pdo->prepare("SELECT * FROM winkelmand");
+$stmt = $pdo->prepare("SELECT * FROM cart");
 $stmt->execute();
-$cart_items = $stmt->fetchAll(PDO::FETCH_OBJ);
+$cart_item = $stmt->fetchAll(PDO::FETCH_OBJ);
 
 // Stap 3: Totaalprijs berekenen
 $total = 0;
-foreach ($cart_items as $item) {
+foreach ($cart_item as $item) {
     $total += $item->price * $item->amount;
 }
 ?>
@@ -19,7 +19,7 @@ foreach ($cart_items as $item) {
 <main class="uk-container uk-padding">
     <div class="uk-grid">
         <section class="uk-width-2-3 uk-flex uk-flex-column uk-cart-gap">
-            <?php foreach($cart_items as $cart_item): ?>
+            <?php foreach($cart_item as $cart_item): ?>
             <div class="uk-card-default uk-card-small uk-flex uk-flex-between">
                 <div class="uk-card-media-left uk-width-1-5">
                     <img src="img/<?= htmlspecialchars($cart_item->image) ?>" alt="<?= htmlspecialchars($cart_item->product_name) ?>" class="product-image uk-align-center">
@@ -56,8 +56,8 @@ foreach ($cart_items as $item) {
                 </div>
                 <div class="uk-card-body">
                     <div class="uk-flex uk-flex-between uk-flex-middle">
-                        <p class="uk-width-1-2">Artikelen (<?= count($cart_items) ?>)</p>
-                        <p class="uk-width-1-2 uk-margin-remove-top uk-text-right">&euro; <?= sprintf("%.2f", $totaal) ?></p>
+                        <p class="uk-width-1-2">Artikelen (<?= count($cart_item) ?>)</p>
+                        <p class="uk-width-1-2 uk-margin-remove-top uk-text-right">&euro; <?= sprintf("%.2f", $total) ?></p>
                     </div>
                     <div class="uk-flex uk-flex-between uk-flex-middle">
                         <p class="uk-width-1-2">Verzendkosten</p>
@@ -67,7 +67,7 @@ foreach ($cart_items as $item) {
                 <div class="uk-card-footer">
                     <div class="uk-flex uk-flex-between uk-flex-middle">
                         <p class="uk-width-1-2 uk-text-bold">Te betalen</p>
-                        <p class="uk-width-1-2 uk-margin-remove-top uk-text-right uk-text-bold">&euro; <?= sprintf("%.2f", $totaal) ?></p>
+                        <p class="uk-width-1-2 uk-margin-remove-top uk-text-right uk-text-bold">&euro; <?= sprintf("%.2f", $total) ?></p>
                     </div>
                     <div class="uk-flex uk-flex-1 uk-flex-middle uk-flex-center uk-margin-medium-top">
                         <a href="order.html" class="uk-button uk-button-primary">

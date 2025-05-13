@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 08, 2025 at 09:42 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Gegenereerd op: 13 mei 2025 om 11:29
+-- Serverversie: 10.4.32-MariaDB
+-- PHP-versie: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,22 +24,22 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `producten`
+-- Tabelstructuur voor tabel `producten`
 --
 
-CREATE TABLE `producten` (
+CREATE TABLE `product` (
   `id` int(11) NOT NULL,
-  `naam` varchar(255) NOT NULL,
-  `beschrijving` text NOT NULL,
-  `prijs` decimal(10,2) NOT NULL,
-  `afbeelding` varchar(255) NOT NULL
+  `name` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  `price` decimal(10,2) NOT NULL,
+  `image` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `producten`
+-- Gegevens worden geëxporteerd voor tabel `producten`
 --
 
-INSERT INTO `producten` (`id`, `naam`, `beschrijving`, `prijs`, `afbeelding`) VALUES
+INSERT INTO `product` (`id`, `name`, `description`, `price`, `image`) VALUES
 (1, 'Proteïneshake', 'Word de GROOTSTE versie van jezelf – scoor je shake nu!', 19.95, 'blijfwakkershake.png'),
 (2, '50KG dumbbells', 'Perfect voor gevorderde deelnemers.', 29.95, 'dumbell.jpg'),
 (3, 'Pre workout shot ', 'De ideale boost om die platen door het dak heen te laten gaan  ', 30.00, 'preworkoutshot.png'),
@@ -50,50 +50,50 @@ INSERT INTO `producten` (`id`, `naam`, `beschrijving`, `prijs`, `afbeelding`) VA
 -- --------------------------------------------------------
 
 --
--- Table structure for table `winkelmand`
+-- Tabelstructuur voor tabel `winkelmand`
 --
 
-CREATE TABLE `winkelmand` (
+CREATE TABLE `cart` (
   `id` int(11) NOT NULL,
-  `gebruiker_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
-  `product_naam` varchar(255) NOT NULL,
-  `prijs` decimal(10,2) NOT NULL,
-  `hoeveelheid` int(11) NOT NULL DEFAULT 1,
-  `afbeeldingen` varchar(255) DEFAULT NULL,
-  `toegevoegd_op` timestamp NOT NULL DEFAULT current_timestamp()
+  `product_name` varchar(255) NOT NULL,
+  `price` decimal(10,2) NOT NULL,
+  `amount` int(11) NOT NULL DEFAULT 1,
+  `image` varchar(255) DEFAULT NULL,
+  `added_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Indexes for dumped tables
+-- Indexen voor geëxporteerde tabellen
 --
 
 --
--- Indexes for table `producten`
+-- Indexen voor tabel `producten`
 --
-ALTER TABLE `producten`
+ALTER TABLE `product`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `winkelmand`
+-- Indexen voor tabel `winkelmand`
 --
-ALTER TABLE `winkelmand`
+ALTER TABLE `cart`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT voor geëxporteerde tabellen
 --
 
 --
--- AUTO_INCREMENT for table `producten`
+-- AUTO_INCREMENT voor een tabel `producten`
 --
-ALTER TABLE `producten`
+ALTER TABLE `product`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `winkelmand`
+-- AUTO_INCREMENT voor een tabel `winkelmand`
 --
-ALTER TABLE `winkelmand`
+ALTER TABLE `cart`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 

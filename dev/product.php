@@ -24,7 +24,7 @@ if (!isset($_GET['product_id'])) {
 $product_id = (int) $_GET['product_id'];
 
 
-$stmt = $pdo->prepare("SELECT * FROM producten WHERE id = :id");
+$stmt = $pdo->prepare("SELECT * FROM product WHERE id = :id");
 $stmt->execute([':id' => $product_id]);
 
 // Haal het product op
@@ -43,19 +43,19 @@ if (!$product) {
          <section class="uk-width-1-2 uk-card-media-left">
             <div class="uk-card-media-top">
                <div class="uk-cover-container" style="height: 700px;">
-                  <img src="img/<?= htmlspecialchars($product->afbeelding) ?>" alt="<?= htmlspecialchars($product->naam) ?>" uk-cover>
+                  <img src="img/<?= htmlspecialchars($product->image) ?>" alt="<?= htmlspecialchars($product->name) ?>" uk-cover>
                </div>
             </div>
          </section>
          <section class="uk-width-1-2 uk-card-body uk-flex uk-flex-column uk-flex-between">
             <div>
-               <h1><?= htmlspecialchars($product->naam) ?></h1>
-               <p><?= htmlspecialchars($product->beschrijving) ?></p>
+               <h1><?= htmlspecialchars($product->name) ?></h1>
+               <p><?= htmlspecialchars($product->description) ?></p>
             </div>
             <div class="uk-flex uk-flex-between uk-flex-middle">
                <div class="price-block">
                   <p class="product-view__price uk-text-bold uk-text-danger uk-text-left uk-text-bolder">
-                     &euro; <?= htmlspecialchars($product->prijs) ?>
+                     &euro; <?= htmlspecialchars($product->price) ?>
                   </p>
                </div>
                <div>

@@ -1,4 +1,7 @@
 <?php
+
+include_once("templates/head.inc.php");
+
 try {
     $dsn = 'mysql:host=localhost;dbname=gymwebshop;';
     $username = 'root';
@@ -20,8 +23,7 @@ if ($stmt === false) {
 }
 
 $product = $stmt->fetchAll(PDO::FETCH_ASSOC);
-?>
-<?php
+
 include_once("templates/head.inc.php");
 ?>  
 

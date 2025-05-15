@@ -19,23 +19,23 @@ foreach ($cart_item as $item) {
 <main class="uk-container uk-padding">
     <div class="uk-grid">
         <section class="uk-width-2-3 uk-flex uk-flex-column uk-cart-gap">
-            <?php foreach($cart_item as $cart_item): ?>
+            <?php foreach($cart_item as $item): ?>
             <div class="uk-card-default uk-card-small uk-flex uk-flex-between">
                 <div class="uk-card-media-left uk-width-1-5">
-                    <img src="img/<?= htmlspecialchars($cart_item->image) ?>" alt="<?= htmlspecialchars($cart_item->product_name) ?>" class="product-image uk-align-center">
+                    <img src="img/<?= htmlspecialchars($item->image) ?>" alt="<?= htmlspecialchars($item->product_name) ?>" class="product-image uk-align-center">
                 </div>
                 <div class="uk-card-body uk-width-4-5 uk-flex uk-flex-between">
                     <div class="uk-width-3-4 uk-flex uk-flex-column">
-                        <h2><?= htmlspecialchars($cart_item->product_name) ?></h2>
-                        <p class="uk-margin-remove-top">Beschrijving kort</p> <!-- Hier kan nog productbeschrijving -->
+                        <h2><?= htmlspecialchars($item->product_name) ?></h2>
+                        <p class="uk-margin-remove-top">Beschrijving kort</p> 
                         <div class="uk-flex uk-flex-between">
-                            <p class="uk-text-primary uk-text-bold">Prijs per stuk: &euro; <?= sprintf("%.2f", $cart_item->price) ?></p>
-                            <p class="uk-text-primary uk-text-bold uk-margin-remove-top">Totaal: &euro; <?= sprintf("%.2f", $cart_item->price * $cart_item->amount) ?></p>
+                            <p class="uk-text-primary uk-text-bold">Prijs per stuk: &euro; <?= sprintf("%.2f", $item->price) ?></p>
+                            <p class="uk-text-primary uk-text-bold uk-margin-remove-top">Totaal: &euro; <?= sprintf("%.2f", $item->price * $item->amount) ?></p>
                         </div>
                     </div>
                     <div class="uk-width-1-4 uk-flex uk-flex-between uk-flex-middle uk-flex-center">
                         <div class="uk-width-3-4 uk-flex uk-flex-column uk-flex-middle">
-                            <input id="amount" class="uk-form-controls uk-form-width-xsmall uk-text-medium" name="amount" value="<?= $cart_item->amount ?>" type="number" /> 
+                            <input id="amount" class="uk-form-controls uk-form-width-xsmall uk-text-medium" name="amount" value="<?= $item->amount ?>" type="number" /> 
                         </div>
                         <div class="uk-width-1-4">
                             <a href="#" class="uk-link-cart-trash uk-flex uk-flex-column uk-flex-middle uk-text-danger uk-flex-1">

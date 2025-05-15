@@ -9,6 +9,7 @@ try {
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
     ];
+    
 
     $pdo = new PDO($dsn, $username, $password, $options);
 } catch (PDOException $e) {
@@ -58,13 +59,18 @@ if (!$product) {
                      &euro; <?= htmlspecialchars($product->price) ?>
                   </p>
                </div>
-               <div>
-                  <form method="POST" action="src/Formhandlers/addtocart.php">
-                     <input type="hidden" name="product_id" value="<?= $product->id ?>" />
-                     <button type="submit" class="uk-button uk-button-primary">
+                  <div>
+                    <form method="POST" action="src/formhandlers/addtocart.php">
+                      <input type="hidden" name="product_id" value="<?= htmlspecialchars($product->id) ?>" />
+                      <input type="hidden" name="product_name" value="<?= htmlspecialchars($product->name) ?>" />
+                     <input type="hidden" name=" description" value="<?= htmlspecialchars($product->description) ?>" />
+                      <input type="hidden" name="price" value="<?= htmlspecialchars($product->price) ?>" />
+                      <input type="hidden" name="image" value="<?= htmlspecialchars($product->image) ?>" />
+                      <button type="submit" class="uk-button uk-button-primary">
                         <span uk-icon="icon: cart"></span> In winkelwagen
-                     </button>
-                  </form>
+                      </button>
+                    </form>
+                  </div>
                </div>
             </div>
          </section>

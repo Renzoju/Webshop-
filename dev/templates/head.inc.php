@@ -18,20 +18,20 @@
     </div>
 
     <div class="uk-navbar-center">
-      <a href="#" class="uk-navbar-item uk-logo">
+      <a href="/webshop/dev/index.php" class="uk-navbar-item uk-logo">
         <img src="img/logo.png" alt="Logo" style="height: 54px; object-fit: contain;">
       </a>
     </div>
 
-    <div class="uk-navbar-right">
-      <ul class="uk-navbar-nav uk-visible@m">
-        <li><a href="#" style="color: black;">Zoek</a></li>
-        <li><a href="#" style="color: black;">Log in</a></li>
-        <li><a href="/webshop/dev/cart.php" style="color: black;">Mand</a></li>
-      </ul>
-      <a class="uk-navbar-toggle uk-hidden@m" uk-navbar-toggle-icon href="#offcanvas-nav" uk-toggle></a>
-    </div>
-  </nav>
+      <div class="uk-navbar-right">
+        <ul class="uk-navbar-nav uk-visible@m">
+          <li><a href="#" style="color: black;">Zoek</a></li>
+          <li><a href="#" style="color: black;">Log in</a></li>
+          <li><a href="/webshop/dev/cart.php" style="color: black;">Mand</a></li>
+        </ul>
+        <a class="uk-navbar-toggle uk-hidden@m" uk-navbar-toggle-icon href="#offcanvas-nav" uk-toggle></a>
+      </div>
+    </nav>
 
   <div id="offcanvas-nav" uk-offcanvas="overlay: true">
     <div class="uk-offcanvas-bar">

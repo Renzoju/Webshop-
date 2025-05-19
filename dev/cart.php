@@ -19,33 +19,46 @@ foreach ($cart_item as $item) {
 <main class="uk-container uk-padding">
     <div class="uk-grid">
         <section class="uk-width-2-3 uk-flex uk-flex-column uk-cart-gap">
-            <?php foreach($cart_item as $item): ?>
-            <div class="uk-card-default uk-card-small uk-flex uk-flex-between">
-                <div class="uk-card-media-left uk-width-1-5">
-                    <img src="img/<?= htmlspecialchars($item->image) ?>" alt="<?= htmlspecialchars($item->product_name) ?>" class="product-image uk-align-center">
-                </div>
-                <div class="uk-card-body uk-width-4-5 uk-flex uk-flex-between">
-                    <div class="uk-width-3-4 uk-flex uk-flex-column">
-                        <h2><?= htmlspecialchars($item->product_name) ?></h2>
-                        <p class="uk-margin-remove-top">Beschrijving kort</p> 
-                        <div class="uk-flex uk-flex-between">
-                            <p class="uk-text-primary uk-text-bold">Prijs per stuk: &euro; <?= sprintf("%.2f", $item->price) ?></p>
-                            <p class="uk-text-primary uk-text-bold uk-margin-remove-top">Totaal: &euro; <?= sprintf("%.2f", $item->price * $item->amount) ?></p>
+            <?php foreach ($cart_item as $item): ?>
+                <div class="uk-card-default uk-card-small uk-flex uk-flex-between">
+                    <div class="uk-card-media-left uk-width-1-5">
+                        <img src="img/<?= htmlspecialchars($item->image) ?>"
+                            alt="<?= htmlspecialchars($item->product_name) ?>" class="product-image uk-align-center">
+                    </div>
+                    <div class="uk-card-body uk-width-4-5 uk-flex uk-flex-between">
+                        <div class="uk-width-3-4 uk-flex uk-flex-column">
+                            <h2><?= htmlspecialchars($item->product_name) ?></h2>
+                            <p class="uk-margin-remove-top">Beschrijving kort</p>
+                            <div class="uk-flex uk-flex-between">
+                                <p class="uk-text-primary uk-text-bold">Prijs per stuk: &euro;
+                                    <?= sprintf("%.2f", $item->price) ?>
+                                </p>
+                                <p class="uk-text-primary uk-text-bold uk-margin-remove-top">Totaal: &euro;
+                                    <?= sprintf("%.2f", $item->price * $item->amount) ?>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="uk-width-1-4 uk-flex uk-flex-between uk-flex-middle uk-flex-center">
+                            <div class="uk-width-3-4 uk-flex uk-flex-column uk-flex-middle">
+                                <input id="amount" class="uk-form-controls uk-form-width-xsmall uk-text-medium"
+                                    name="amount" value="<?= $item->amount ?>" type="number" />
+                            </div>
+                            <div class="uk-width-1-4">
+                                <form action="src/formhandlers/removefromcart.php" method="POST">
+                                    <input type="hidden" name="product_id" value="<?= $item->product_id ?>">
+                                    <button type="submit"
+                                        class="uk-link-cart-trash uk-flex uk-flex-column uk-flex-middle uk-text-danger uk-flex-1"
+                                        style="border: none; background: none;">
+                                        <span uk-icon="icon: trash"></span>
+                                        <span class="uk-text-xsmall">Verwijder</span>
+                                    </button>
+                                </form>
+
+                                </a>
+                            </div>
                         </div>
                     </div>
-                    <div class="uk-width-1-4 uk-flex uk-flex-between uk-flex-middle uk-flex-center">
-                        <div class="uk-width-3-4 uk-flex uk-flex-column uk-flex-middle">
-                            <input id="amount" class="uk-form-controls uk-form-width-xsmall uk-text-medium" name="amount" value="<?= $item->amount ?>" type="number" /> 
-                        </div>
-                        <div class="uk-width-1-4">
-                            <a href="#" class="uk-link-cart-trash uk-flex uk-flex-column uk-flex-middle uk-text-danger uk-flex-1">
-                                 <span uk-icon="icon: trash"></span>
-                                <span class="uk-text-xsmall">Verwijder</span>
-                            </a>
-                        </div>
-                    </div>
                 </div>
-            </div>
             <?php endforeach; ?>
         </section>
 
@@ -57,7 +70,8 @@ foreach ($cart_item as $item) {
                 <div class="uk-card-body">
                     <div class="uk-flex uk-flex-between uk-flex-middle">
                         <p class="uk-width-1-2">Artikelen (<?= count($cart_item) ?>)</p>
-                        <p class="uk-width-1-2 uk-margin-remove-top uk-text-right">&euro; <?= sprintf("%.2f", $total) ?></p>
+                        <p class="uk-width-1-2 uk-margin-remove-top uk-text-right">&euro; <?= sprintf("%.2f", $total) ?>
+                        </p>
                     </div>
                     <div class="uk-flex uk-flex-between uk-flex-middle">
                         <p class="uk-width-1-2">Verzendkosten</p>
@@ -67,12 +81,14 @@ foreach ($cart_item as $item) {
                 <div class="uk-card-footer">
                     <div class="uk-flex uk-flex-between uk-flex-middle">
                         <p class="uk-width-1-2 uk-text-bold">Te betalen</p>
-                        <p class="uk-width-1-2 uk-margin-remove-top uk-text-right uk-text-bold">&euro; <?= sprintf("%.2f", $total) ?></p>
+                        <p class="uk-width-1-2 uk-margin-remove-top uk-text-right uk-text-bold">&euro;
+                            <?= sprintf("%.2f", $total) ?>
+                        </p>
                     </div>
                     <div class="uk-flex uk-flex-1 uk-flex-middle uk-flex-center uk-margin-medium-top">
                         <a href="order.html" class="uk-button uk-button-primary">
                             Verder naar bestellen
-                         </a>
+                        </a>
                     </div>
                 </div>
             </div>

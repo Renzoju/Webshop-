@@ -26,8 +26,8 @@
       <div class="uk-navbar-right">
         <ul class="uk-navbar-nav uk-visible@m">
           <li><a href="#" style="color: black;">Zoek</a></li>
-          <li><a href="#" style="color: black;">Log in</a></li>
-          <li><a href="/webshop/dev/cart.php" style="color: black;">Mand</a></li>
+          <li><a href="login.php" style="color: black;">Log in</a></li>
+          <li><a href="cart.php" style="color: black;">Mand</a></li>
         </ul>
         <a class="uk-navbar-toggle uk-hidden@m" uk-navbar-toggle-icon href="#offcanvas-nav" uk-toggle></a>
       </div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 19 mei 2025 om 15:28
+-- Gegenereerd op: 20 mei 2025 om 11:44
 -- Serverversie: 10.4.32-MariaDB
 -- PHP-versie: 8.2.12
 
@@ -57,13 +57,6 @@ CREATE TABLE `cart_items` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Gegevens worden geëxporteerd voor tabel `cart_items`
---
-
-INSERT INTO `cart_items` (`id`, `cart_id`, `product_id`, `amount`, `created_at`, `updated_at`) VALUES
-(4, 2, 2, 1, '2025-05-19 13:27:47', NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -90,6 +83,26 @@ INSERT INTO `product` (`id`, `name`, `description`, `price`, `image`) VALUES
 (5, 'eiwitreep (12 stuks)', 'Heerlijke eiwitreep boordevol proteïne – perfect als snack voor spierherstel en energie.', 25.75, 'proteinbar.png'),
 (6, '200 mg TEST ', 'Die extra boost om op ronnie coleman te lijken (gaat niet gebeuren!)', 325.90, 'trenzo.png');
 
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `users`
+--
+
+CREATE TABLE `users` (
+  `ID` int(11) NOT NULL,
+  `Username` varchar(255) NOT NULL,
+  `Password` varchar(255) NOT NULL,
+  `Email` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `users`
+--
+
+INSERT INTO `users` (`ID`, `Username`, `Password`, `Email`) VALUES
+(1, '', 'password123', 'user@example.com');
+
 --
 -- Indexen voor geëxporteerde tabellen
 --
@@ -114,6 +127,12 @@ ALTER TABLE `product`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexen voor tabel `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- AUTO_INCREMENT voor geëxporteerde tabellen
 --
 
@@ -134,6 +153,12 @@ ALTER TABLE `cart_items`
 --
 ALTER TABLE `product`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT voor een tabel `users`
+--
+ALTER TABLE `users`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Beperkingen voor geëxporteerde tabellen

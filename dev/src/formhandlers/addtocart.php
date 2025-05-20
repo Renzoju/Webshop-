@@ -28,7 +28,7 @@ if (!$cart_id) {
     $cart_id = $pdo->lastInsertId();
 }
 
-// Stap 4: Check of product al in cart_items zit
+// Check of product al in cart_items zit
 $stmt = $pdo->prepare("SELECT id, amount FROM cart_items WHERE cart_id = :cart_id AND product_id = :product_id");
 $stmt->execute([
     ':cart_id' => $cart_id,
@@ -36,7 +36,7 @@ $stmt->execute([
 ]);
 $existing = $stmt->fetch();
 
-// Stap 5: Toevoegen of bijwerken
+// Stap 5:= Toevoegen of bijwerken
 if ($existing) {
     // Product zit al in winkelmand → aantal verhogen
     $stmt = $pdo->prepare("UPDATE cart_items SET amount = amount + 1, updated_at = NOW() WHERE id = :id");

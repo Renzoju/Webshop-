@@ -1,5 +1,6 @@
 <?php
 
+
 try {
     $dsn = 'mysql:host=localhost;dbname=gymwebshop;';
     $username = 'root';

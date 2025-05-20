@@ -1,33 +1,36 @@
 <?php
-// Stap 1: Verbinden met database
+// Databaseverbinding
 $pdo = new PDO('mysql:host=localhost;dbname=gymwebshop', 'root', '');
 
-function login($username, $password) {
-    global $pdo; // Assuming $pdo is your PDO connection
+// Inlogfunctie
+function login($email, $password) {
+    global $pdo;
 
-    $stmt = $pdo->prepare('SELECT id, username, password FROM users WHERE username = :username LIMIT 1');
-    $stmt->execute(['username' => $username]);
+    // Gebruiker ophalen
+    $stmt = $pdo->prepare('SELECT id, email, password FROM users WHERE email = :email LIMIT 1');
+    $stmt->execute(['email' => $email]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
+    // Wachtwoord controleren
     if ($user && $password === $user['password']) {
         $_SESSION['user_id'] = $user['id'];
-        $_SESSION['username'] = $user['username'];
+        $_SESSION['email'] = $user['email'];
         return true;
     }
     return false;
 }
 
-// Example usage:
+// Inlogverzoek afhandelen
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = trim($_POST['username'] ?? '');
+    $email = trim($_POST['email'] ?? '');
     $password = $_POST['password'] ?? '';
 
-    if (login($username, $password)) {
-        header('Location: /cart.php');
+    if (login($email, $password)) {
+        header('Location: /webshop/dev/cart.php');
         exit;
     } else {
-        $error = 'Invalid username or password.';
-        header('Location: /login.php');
+        $error = 'Invalid email or password.';
+        header('Location: /webshop/dev/login.php');
         exit;
     }
 }

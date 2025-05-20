@@ -1,7 +1,7 @@
 <?php
 
 
-class database
+class Database
 {
       private static $dbHost = 'localhost';
       private static $dbName = 'gymwebshop';
@@ -11,4 +11,6 @@ class database
 
       private static $dbConnection = null;
       private static $dbStatement = null;
+
+      
 }

@@ -17,7 +17,7 @@ if (
 $firstname = htmlentities($_POST['firstname']);
 $lastname = htmlentities($_POST['lastname']);
 $username = htmlentities($_POST['username']);
-$email = htmlentities($_POST['email']);
+$email = htmlentities($_POST['e-mail']);
 $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
 $dsn = 'mysql:host=localhost;dbname=gymwebshop;';
